@@ -15,6 +15,9 @@ module PushoverNotify
       unless valid_sound(message_tokens[:sound])
         message_tokens.delete(:sound)
       end
+      unless valid_priority(message_tokens[:sound])
+        message_tokens.delete(:priority)
+      end
 
       @request.set_form_data({
                                  :token => @application_key,
@@ -23,7 +26,8 @@ module PushoverNotify
                                  :title => message_tokens[:title],
                                  :url => message_tokens[:url],
                                  :url_title => message_tokens[:url_title],
-                                 :sound => message_tokens[:sound]
+                                 :sound => message_tokens[:sound],
+                                 :priority => message_tokens[:priority]
                                })
     end
 
@@ -41,7 +45,11 @@ module PushoverNotify
     end
 
     def valid_sound (sound)
-      sound.nil? || @sounds.include?(sound)
+      @sounds.include? sound
+    end
+
+    def valid_priority (priority)
+      [-1, 0, 1, "-1", "0", "1"].include? priority
     end
   end
 end
