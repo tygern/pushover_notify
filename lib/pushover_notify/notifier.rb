@@ -9,15 +9,13 @@ module PushoverNotify
       @request = Net::HTTP::Post.new(@url.path)
       @response = Net::HTTP.new(@url.host, @url.port)
       @sounds = fetch_sounds
+      @priorities = [-1, 0, 1, "-1", "0", "1"]
     end
 
     def set_request_attributes (message_tokens = {})
-      unless valid_sound(message_tokens[:sound])
-        message_tokens.delete(:sound)
-      end
-      unless valid_priority(message_tokens[:sound])
-        message_tokens.delete(:priority)
-      end
+
+      message_tokens.delete(:sound) unless valid_sound(message_tokens[:sound])
+      message_tokens.delete(:priority) unless valid_priority(message_tokens[:priority])
 
       @request.set_form_data({
                                  :token => @application_key,
@@ -31,7 +29,7 @@ module PushoverNotify
                                })
     end
 
-    def send
+    def send_message
       @response = Net::HTTP.new(@url.host, @url.port)
       @response.use_ssl = true
       @response.verify_mode = OpenSSL::SSL::VERIFY_PEER
@@ -49,7 +47,7 @@ module PushoverNotify
     end
 
     def valid_priority (priority)
-      [-1, 0, 1, "-1", "0", "1"].include? priority
+      @priorities.include? priority
     end
   end
 end

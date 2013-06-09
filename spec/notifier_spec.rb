@@ -45,6 +45,18 @@ describe Notifier do
       @notifier.request.body.should_not =~ /donkey/
     end
 
+    it 'should accept a valid priority' do
+      @notifier.set_request_attributes({
+                                         :message => 'hello',
+                                         :title => 'this is a title',
+                                         :url => 'http://www.google.com',
+                                         :url_title => 'Search the web',
+                                         :sound => 'donkey',
+                                         :priority => 1
+                                       })
+      @notifier.request.body.should =~ /priority=1/
+    end
+
     it 'should not accept an invalid priority' do
       @notifier.set_request_attributes({
                                          :message => 'hello',
