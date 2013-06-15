@@ -9,7 +9,7 @@ require "rubygems"
 require 'bundler'
 
 require File.dirname(__FILE__) + '/../lib/pushover_notify'
-require File.dirname(__FILE__) + '/../lib/pushover_notify/notifier'
+Dir[File.dirname(__FILE__) + '/../lib/pushover_notify/*.rb'].each {|file| require file }
 
 RSpec.configure do |config|
   config.treat_symbols_as_metadata_keys_with_true_values = true
