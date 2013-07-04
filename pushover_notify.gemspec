@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = PushoverNotify::VERSION
   spec.authors       = %w(tygern)
   spec.email         = %w(tygern@gmail.com)
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = %q{Send notifications to Pushover}
+  spec.summary       = %q{Send notifications to Pushover}
   spec.homepage      = ''
   spec.license       = 'MIT'
 
