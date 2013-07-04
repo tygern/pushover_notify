@@ -1,6 +1,6 @@
 # PushoverNotify
 
-TODO: Write a gem description
+Send notifications to [Pushover](https://pushover.net/) on Android and iOS.
 
 ## Installation
 
@@ -18,7 +18,8 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+1. Create `config/keys.yml` and add your user and application keys. See `config/keys.yml.example` for an example.
+2. See `spec` files for example usage.
 
 ## Contributing
 
