@@ -5,7 +5,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 require 'rspec'
-require "rubygems"
+require 'rubygems'
 require 'bundler'
 
 require File.dirname(__FILE__) + '/../lib/pushover_notify'
