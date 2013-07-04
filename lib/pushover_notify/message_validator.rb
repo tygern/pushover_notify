@@ -1,11 +1,11 @@
 module PushoverNotify
   class MessageValidator
-    def initialize(notifier)
-      @application_key = notifier.application_key
+    def initialize(message)
+      @application_key = PushoverNotify::Authentication::application_key
       @sounds = fetch_sounds
       @priorities = [-1, 0, 1, "-1", "0", "1"]
 
-      @message = notifier.message
+      @message = message
     end
 
     def validate

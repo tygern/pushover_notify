@@ -2,8 +2,8 @@ module PushoverNotify
   class User
     attr_reader :key, :devices
 
-    def initialize(key, devices: [])
-      @key = key
+    def initialize(key: nil, devices: [])
+      @key = key || PushoverNotify::Authentication::user_key
       @devices = devices
     end
 

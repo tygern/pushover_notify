@@ -5,7 +5,7 @@ module PushoverNotify
 
     def initialize (user, message, device: nil)
       @user = user
-      @application_key = 'xQNk3zEDqFczPaqp2CWpjEDwqumvRp'
+      @application_key = PushoverNotify::Authentication::application_key
       @message = message
 
       @url = URI.parse "https://api.pushover.net/1/messages.json"
@@ -19,7 +19,7 @@ module PushoverNotify
 
 
     def send_message
-      message_validator = PushoverNotify::MessageValidator.new(self)
+      message_validator = PushoverNotify::MessageValidator.new(message)
       @message = message_validator.validate
 
       create_request

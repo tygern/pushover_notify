@@ -2,7 +2,7 @@ require 'rspec'
 require 'spec_helper'
 
 describe Notifier do
-  let(:user) {PushoverNotify::User.new '12345'}
+  let(:user) {PushoverNotify::User.new key: '12345'}
 
 
   let(:android) {PushoverNotify::Device.new('android')}

@@ -13,16 +13,15 @@ describe MessageValidator do
                                 })
   }
 
-  let(:user) {PushoverNotify::User.new '12345'}
-  let(:notifier) {PushoverNotify::Notifier.new(user, message)}
+  let(:user) {PushoverNotify::User.new key: '12345'}
+  let(:message_validator) { PushoverNotify::MessageValidator.new message }
 
   before(:each) do
     PushoverNotify::MessageValidator.any_instance.stub(:fetch_sounds) { ["echo", "bike"] }
-    @message_validator = PushoverNotify::MessageValidator.new(notifier)
   end
 
   it 'should not delete valid attributes' do
-    valid_message = @message_validator.validate
+    valid_message = message_validator.validate
 
     valid_message.text.should == 'hello'
     valid_message.title.should == 'this is a title'
@@ -36,7 +35,7 @@ describe MessageValidator do
     message.sound = 'not a valid sound'
     message.priority = 'not a valid priority'
 
-    valid_message = @message_validator.validate
+    valid_message = message_validator.validate
 
     valid_message.text.should == 'hello'
     valid_message.title.should == 'this is a title'
