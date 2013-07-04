@@ -2,9 +2,9 @@ require 'rspec'
 require 'spec_helper'
 
 describe User do
-  let(:user) {PushoverNotify::User.new('12345')}
-  let(:android) {PushoverNotify::Device.new('android')}
-  let(:nexus) {PushoverNotify::Device.new('nexus')}
+  let(:user) {PushoverNotify::User.new key: '12345' }
+  let(:android) {PushoverNotify::Device.new 'android' }
+  let(:nexus) {PushoverNotify::Device.new 'nexus' }
 
 
   before(:each) do
