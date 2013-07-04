@@ -1,4 +1,4 @@
-Copyright (c) 2013 tygern
+Copyright (c) 2013 Tyson Gern
 
 MIT License
 

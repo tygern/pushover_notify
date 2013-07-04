@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = %w(tygern@gmail.com)
   spec.description   = %q{Send notifications to Pushover}
   spec.summary       = %q{Send notifications to Pushover}
-  spec.homepage      = ''
+  spec.homepage      = 'https://github.com/tygern/pushover_notify/'
   spec.license       = 'MIT'
 
   spec.files         = `git ls-files`.split($/)
