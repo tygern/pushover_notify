@@ -3,13 +3,13 @@ require 'spec_helper'
 
 describe Message do
   before(:each) do
-    @message = PushoverNotify::Message.new({
-      :text => 'hello',
-      :title => 'this is a title',
-      :url => 'http://www.google.com',
-      :sound => 'donkey',
-      :priority => 3
-    })
+    @message = PushoverNotify::Message.new(
+      text: 'hello',
+      title: 'this is a title',
+      url: 'http://www.google.com',
+      sound: 'donkey',
+      priority: 3
+    )
   end
 
   it 'should initialize and return the correct attributes' do

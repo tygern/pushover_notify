@@ -1,11 +1,18 @@
 module PushoverNotify
   class User
-    attr_accessor :device
-    attr_reader :key
+    attr_reader :key, :devices
 
-    def initialize(key, device = [])
+    def initialize(key, devices: [])
       @key = key
-      @device = device || []
+      @devices = devices
+    end
+
+    def add_device(device)
+      devices << device unless has_device?(device)
+    end
+
+    def has_device?(device)
+      devices.include?(device)
     end
 
   end
