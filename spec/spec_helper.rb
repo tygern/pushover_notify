@@ -1,6 +1,7 @@
 require 'rspec'
 require 'rubygems'
 require 'bundler'
+require 'artifice'
 
 require File.dirname(__FILE__) + '/../lib/pushover_notify'
 Dir[File.dirname(__FILE__) + '/../lib/pushover_notify/*.rb'].each {|file| require file }
